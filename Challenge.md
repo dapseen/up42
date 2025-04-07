@@ -22,6 +22,7 @@ Here are my thoughts and consideration about the implementation
 
 ##  Deployment and Release 
 - I will propose Github Action for Terraform deployment and using GCP object storage to persist terraform state
+- Make use of TF workspace to properly differentiate the env
 
 
 ## CICD implementation
