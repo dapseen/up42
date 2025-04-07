@@ -29,11 +29,6 @@ The solution consists of the following components:
    - Connects to Minio for data access
    - Exposes Prometheus metrics
 
-3. **GCP Services**:
-   - GKE Ingress Controller for load balancing
-   - Secret Manager for credential storage
-   - Managed Certificates for SSL/TLS
-   - Cloud Monitoring for metrics
 
 ## Prerequisites
 
@@ -90,13 +85,14 @@ The solution consists of the following components:
 - **Secret**: Manages S3 credentials
 
 ### Terraform Configuration
-- Manages GCP resources
+- Manages helm chart deployment
 - Configures Secret Manager
 - Sets up Ingress resources
 - Manages SSL certificates
 
 ## Installation
 
+Terraform is already doing the major work, however, if there is a need to setup the service on minikube, please start from step (2)
 
 1. **Initialize Terraform**:
 ```bash
@@ -108,13 +104,13 @@ terraform apply
 
 2. **Install Helm Charts**:
 ```bash
-# Install Minio
+# Install Minio locally
 helm install minio ./minio/chart/minio \
   --set ingress.hosts[0].host=minio.example.com \
   --set minio.rootUser=ROOTUSER \
-  --set minio.rootPassword=CHANGEME123
+  --set minio.rootPassword=ROOTPASSWORD
 
-# Install s3www
+# Install s3www locally
 helm install s3www ./s3www/chart/s3www \
   --set ingress.hosts[0].host=s3www.example.com \
   --set s3www.accessKey="ACCESS_KEY" \

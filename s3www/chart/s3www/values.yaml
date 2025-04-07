@@ -45,7 +45,7 @@ service:
   annotations: {}
 
 ingress:
-  enabled: true
+  enabled: false
   className: "gce"  # GCP Ingress class
   annotations:
     kubernetes.io/ingress.class: "gce"
