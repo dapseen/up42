@@ -174,7 +174,6 @@ metrics:
 - Minio metrics available at `/minio/v2/metrics/cluster`
 - s3www metrics available at `/metrics`
 - Prometheus ServiceMonitors configured
-- Custom dashboards available
 
 ### Alerts
 - Disk usage alerts
@@ -186,15 +185,9 @@ metrics:
 ## Maintenance
 
 
-### Backup
-- Regular volume snapshots
-- Cross-region replication
-- Point-in-time recovery
-
 ### Scaling
 - Horizontal Pod Autoscaling configured
 - Resource limits and requests set
-- Node pool autoscaling enabled
 
 ## Troubleshooting
 
