@@ -1,5 +1,8 @@
 # Minio and s3www Deployment 
 
+
+![Architecture Diagram](./images/architecture.png)
+
 This project provides a Helm-based deployment of Minio (S3-compatible object storage) and s3www (S3 web interface). The deployment includes automatic metrics collection, secure credential management, and external access through native Ingress controller.
 
 ## Table of Contents
