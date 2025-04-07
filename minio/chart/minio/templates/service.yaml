@@ -4,8 +4,15 @@ metadata:
   name: {{ include "minio.fullname" . }}
   labels:
     {{- include "minio.labels" . | nindent 4 }}
+  {{- with .Values.service.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   type: {{ .Values.service.type }}
+  {{- if eq .Values.service.type "LoadBalancer" }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP | default "" }}
+  {{- end }}
   ports:
     - port: {{ .Values.service.apiPort }}
       targetPort: api
